@@ -20,8 +20,6 @@ var MWPjs = {
 
         var message = arg.message
         var okButton = document.createElement('button')
-        var pTag = document.createElement('p');
-        pTag.innerHTML = '&times;';
         var okButtonText = document.createTextNode('Get widgets')
         okButton.appendChild(okButtonText)
         okButton.classList.add('okButton')
@@ -36,23 +34,38 @@ var MWPjs = {
 
         closebutton.onclick = () => arg.close();
 
+        var messageText = document.createElement('p');
+        messageText.innerHTML = message;
+
+        var toolbar = document.createElement('div');
+        toolbar.appendChild(messageText);
+        toolbar.appendChild(okButton); 
+        toolbar.appendChild(closebutton);  
+
         if (arg.position === 'top') {
-            var toolbar = document.createElement('div');
             toolbar.setAttribute('id', 'toolbarTop');
-            toolbar.classList.add('toolbarTop')
-            toolbar.innerHTML = message
-            toolbar.appendChild(okButton); 
-            toolbar.appendChild(closebutton);   
-            body.insertBefore(toolbar, section) 
+            toolbar.classList.add('toolbarTop');
+            body.insertBefore(toolbar, section);
+
+            var transformY = 'translateY('+(-toolbar.offsetHeight)+'px)';
+            body.animate([
+                { transform: transformY }, 
+                { transform: 'translateY(0px)' }
+              ], { 
+                duration: 500
+              });
         }
         if (arg.position === 'bottom') {
-             var toolbar = document.createElement('div');
             toolbar.setAttribute('id', 'toolbarBottom');
-            toolbar.classList.add('toolbarBottom')    
-            toolbar.innerHTML = message
-            toolbar.appendChild(okButton); 
-            toolbar.appendChild(closebutton);
-            body.appendChild(toolbar)
+            toolbar.classList.add('toolbarBottom')    ;
+            body.appendChild(toolbar);
+
+            document.getElementById('toolbarBottom').animate([
+                { transform: 'translateY(100%)' }, 
+                { transform: 'translateY(0px)' }
+              ], { 
+                duration: 500
+              });
         }
     }
 }
