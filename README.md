@@ -16,8 +16,8 @@ Usage of the widget look like following:
 <script>
   var myBar = new MWPjs.bar({
       message: 'msg here',
-      close: function(),
-      clickOk: function(),
+      close: function() {},
+      clickOk: function() {},
       position: 'top'
   });
 </script>
@@ -26,9 +26,6 @@ Usage of the widget look like following:
 argument | description
 --- | ---
 message | it's string message visible on the widget
---- | ---
 close | it's callback function which will start after clicking close button
---- | ---
 clickOk | it's callback function which will start after clicking ok button
---- | ---
 position | its string which defines position of widget **(only 'top' or 'bottom)**
