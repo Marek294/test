@@ -26,7 +26,7 @@ var MWPjs = {
 
         okButton.onclick = () => arg.clickOk();
 
-        var closebutton = document.createElement('button')
+        var closebutton = document.createElement('button');
         closebutton.innerHTML = '&times;';
         closebutton.classList.add('closeButton');
 

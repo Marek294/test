@@ -56,7 +56,7 @@ body {
 #toolbarTop {
     background: #363d4d;
     display: flex;
-    padding: 10 0;
+    padding: 5px 0;
     flex-direction: row;
     justify-content: center;
     align-items: center;    
@@ -70,7 +70,7 @@ body {
 #toolbarBottom {
     background: #363d4d;
     display: flex;
-    padding: 10 0;
+    padding: 5px 0;
     flex-direction: row;
     justify-content: center;
     align-items: center;    
@@ -85,12 +85,15 @@ body {
 
 .okButton {
     background: #FFBE00;
-    height: 30px;
-    border-radius: 5px;
+    height: 35px;
+    border-radius: 2px;
     border: none;
-    padding: 0 20;
+    padding: 0 15;
     margin: 0 20;
     transition: all 200ms;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
 }
 
 .okButton:hover {
@@ -99,21 +102,24 @@ body {
 }
 
 .message {
-    font-size: 15px;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 32px;
+    margin: 0;
 }
 
 .closeButton {
-    height: 30px;
-    width: 30px;
     position: absolute;
-    right: 0;
+    right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     background: transparent;
     color: rgba(255,255,255,0.5);
-    font-size: 20;
+    font-size: 25;
     transform: rotateZ(0deg);
 
     transition: all 200ms;
