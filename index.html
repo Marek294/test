@@ -1,8 +1,28 @@
 <html>
     <head>
-
+        <title>test</title>
+        <script src='./toolbarscript.js' ></script>
+        <link rel="stylesheet" type="text/css" href="styles.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
     </head>
     <body>
-        
+        <section class='container'>
+            <h1 class='container__title'>Choose widget position for preview</h1>
+            <div class='container__buttons'>
+                <button id='top' class='buttons__button buttons__button--top'>
+                </button>
+                <button id='bottom' class='buttons__button buttons__button--bottom'>
+                </button>
+            </div>
+        </section>
+        <script>
+            var myBar = new MWPjs.bar({
+                message: 'msg here - Beautiful and simple website widgets',
+                close: function(){ alert('pushed x') },
+                clickOk: function(){ alert('pushed ok') },
+                position: 'top' // bottom
+            });
+    
+        </script>
     </body>
 </html>
