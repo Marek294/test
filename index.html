@@ -26,6 +26,8 @@
             var buttonBottom = document.getElementById('buttonBottom');
             var buttonTop = document.getElementById('buttonTop');
 
+            buttonTop.classList.add('active');
+
             buttonBottom.onclick = () => {
                 if(buttonTop.classList.contains('active')) buttonTop.classList.toggle('active');
 
