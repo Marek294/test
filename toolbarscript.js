@@ -27,15 +27,17 @@ var MWPjs = {
         okButton.onclick = () => arg.clickOk();
 
         var closebutton = document.createElement('button')
-        var closeSign = document.createElement('p');
-        closeSign.innerHTML = '&times;';
-        closebutton.appendChild(closeSign)
+        // var closeSign = document.createElement('p');
+        // closeSign.innerHTML = '&times;';
+        // closebutton.appendChild(closeSign)
+        closebutton.innerHTML = '&times;';
         closebutton.classList.add('closeButton');
 
         closebutton.onclick = () => arg.close();
 
         var messageText = document.createElement('p');
         messageText.innerHTML = message;
+        messageText.classList.add('message');
 
         var toolbar = document.createElement('div');
         toolbar.appendChild(messageText);

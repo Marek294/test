@@ -55,25 +55,72 @@ body {
 
 #toolbarTop {
     background: #363d4d;
-    padding-bottom: 5px;
-    padding-top: 5px;            
+    display: flex;
+    padding: 10 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
     text-align: center;
     width: 100%;
     color: white;
     font-size: 12px;
-    vertical-align: baseline;
     margin: 0;
 }
 
 #toolbarBottom {
     background: #363d4d;
-    padding-bottom: 5px;
-    padding-top: 5px;   
+    display: flex;
+    padding: 10 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
     text-align: center;
     width: 100%;
     color: white;
     font-size: 12px;
-    vertical-align: baseline;
+    margin: 0;
     bottom: 0;
     position: fixed;
+}
+
+.okButton {
+    background: #FFBE00;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 20;
+    margin: 0 20;
+    transition: all 200ms;
+}
+
+.okButton:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+.message {
+    font-size: 15px;
+}
+
+.closeButton {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    font-size: 20;
+    transform: rotateZ(0deg);
+
+    transition: all 200ms;
+}
+
+.closeButton:hover {
+    color: white;
+    transform: rotateZ(90deg);
+    cursor: pointer;
 }
