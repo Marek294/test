@@ -10,49 +10,45 @@
         <section class='container'>
             <h1 class='container__title'>Choose widget position for preview</h1>
             <div class='container__buttons'>
-                <button id='buttonTop' class='buttons__button buttons__button--top'>
-                </button>
-                <button id='buttonBottom' class='buttons__button buttons__button--bottom'>
-                </button>
+                <a href='#top-bar' id='buttonTop' class='buttons__button buttons__button--top'></a>
+                <a href='#bottom-bar' id='buttonBottom' class='buttons__button buttons__button--bottom'></a>
             </div>
         </section>
         <script>
-            var myBar = new MWPjs.bar({
-                message: 'Add beautiful widgets to your website',
-                close: function(){ alert('pushed x') },
-                clickOk: function(){ alert('pushed ok') },
-                position: 'top'
-            });
+            function locationHashChanged() {
+                var buttonBottom = document.getElementById('buttonBottom');
+                var buttonTop = document.getElementById('buttonTop');
+                var hash = location.hash;
+                var hashString = hash.substr(1,hash.length);
 
-            var buttonBottom = document.getElementById('buttonBottom');
-            var buttonTop = document.getElementById('buttonTop');
+                if(hashString === 'top-bar') {
+                    new MWPjs.bar({
+                        message: 'msg here - Beautiful and simple website widgets',
+                        close: function(){ alert('pushed x') },
+                        clickOk: function(){ alert('pushed ok') },
+                        position: 'top'
+                    });
 
-            buttonTop.classList.add('active');
+                    buttonTop.classList.add('active');
+                    buttonBottom.classList.remove('active');
+                }
 
-            buttonBottom.onclick = () => {
-                if(buttonTop.classList.contains('active')) buttonTop.classList.toggle('active');
+                if(hashString === 'bottom-bar') {
+                    new MWPjs.bar({
+                        message: 'msg here - Beautiful and simple website widgets',
+                        close: function(){ alert('pushed x') },
+                        clickOk: function(){ alert('pushed ok') },
+                        position: 'bottom'
+                    });
 
-                buttonBottom.classList.add('active');
-                return new MWPjs.bar({
-                            message: 'msg here - Beautiful and simple website widgets',
-                            close: function(){ alert('pushed x') },
-                            clickOk: function(){ alert('pushed ok') },
-                            position: 'bottom'
-                        });
+                    buttonBottom.classList.add('active');
+                    buttonTop.classList.remove('active');
+                }
             }
 
-            
-            buttonTop.onclick = () => {
-                if(buttonBottom.classList.contains('active')) buttonBottom.classList.toggle('active');
+            window.onhashchange = locationHashChanged;
 
-                buttonTop.classList.add('active');
-                return new MWPjs.bar({
-                            message: 'msg here - Beautiful and simple website widgets',
-                            close: function(){ alert('pushed x') },
-                            clickOk: function(){ alert('pushed ok') },
-                            position: 'top'
-                        });
-            }
+            if(location.hash) locationHashChanged();
         </script>
     </body>
 </html>
