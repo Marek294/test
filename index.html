@@ -9,9 +9,9 @@
         <section class='container'>
             <h1 class='container__title'>Choose widget position for preview</h1>
             <div class='container__buttons'>
-                <button id='top' class='buttons__button buttons__button--top'>
+                <button id='buttonTop' class='buttons__button buttons__button--top'>
                 </button>
-                <button id='bottom' class='buttons__button buttons__button--bottom'>
+                <button id='buttonBottom' class='buttons__button buttons__button--bottom'>
                 </button>
             </div>
         </section>
@@ -20,9 +20,36 @@
                 message: 'msg here - Beautiful and simple website widgets',
                 close: function(){ alert('pushed x') },
                 clickOk: function(){ alert('pushed ok') },
-                position: 'top' // bottom
+                position: 'top'
             });
-    
+
+            var buttonBottom = document.getElementById('buttonBottom');
+            var buttonTop = document.getElementById('buttonTop');
+
+            buttonBottom.onclick = () => {
+                if(buttonTop.classList.contains('active')) buttonTop.classList.toggle('active');
+
+                buttonBottom.classList.add('active');
+                return new MWPjs.bar({
+                            message: 'msg here - Beautiful and simple website widgets',
+                            close: function(){ alert('pushed x') },
+                            clickOk: function(){ alert('pushed ok') },
+                            position: 'bottom'
+                        });
+            }
+
+            
+            buttonTop.onclick = () => {
+                if(buttonBottom.classList.contains('active')) buttonBottom.classList.toggle('active');
+
+                buttonTop.classList.add('active');
+                return new MWPjs.bar({
+                            message: 'msg here - Beautiful and simple website widgets',
+                            close: function(){ alert('pushed x') },
+                            clickOk: function(){ alert('pushed ok') },
+                            position: 'top'
+                        });
+            }
         </script>
     </body>
 </html>
