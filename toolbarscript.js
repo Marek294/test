@@ -39,32 +39,20 @@ var MWPjs = {
         var toolbar = document.createElement('div');
         toolbar.appendChild(messageText);
         toolbar.appendChild(okButton); 
-        toolbar.appendChild(closebutton);  
+        toolbar.appendChild(closebutton); 
+        toolbar.setAttribute('id', arg.position === 'top' ? 'toolbarTop' : 'toolbarBottom');
 
-        if (arg.position === 'top') {
-            toolbar.setAttribute('id', 'toolbarTop');
-            toolbar.classList.add('toolbarTop');
-            body.insertBefore(toolbar, section);
-
-            var transformY = 'translateY('+(-toolbar.offsetHeight)+'px)';
-            body.animate([
-                { transform: transformY }, 
-                { transform: 'translateY(0px)' }
-              ], { 
-                duration: 500
-              });
+        body.insertBefore(toolbar, section);
+        var transformY = arg.position === 'top' ? 'translateY('+(-toolbar.offsetHeight)+'px)' : 'translateY('+toolbar.offsetHeight+'px)';
+        var keyframes = [
+            { transform: transformY }, 
+            { transform: 'translateY(0px)' }
+        ];
+        var options = {
+            duration: 500
         }
-        if (arg.position === 'bottom') {
-            toolbar.setAttribute('id', 'toolbarBottom');
-            toolbar.classList.add('toolbarBottom')    ;
-            body.appendChild(toolbar);
 
-            document.getElementById('toolbarBottom').animate([
-                { transform: 'translateY(100%)' }, 
-                { transform: 'translateY(0px)' }
-              ], { 
-                duration: 500
-              });
-        }
+        if (arg.position === 'top') body.animate(keyframes,options);
+        if (arg.position === 'bottom') toolbar.animate(keyframes, options);
     }
 }
